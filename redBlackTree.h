@@ -23,18 +23,22 @@ public:
 		else
 		{
 			Node* newNode = new Node(season, game);
-			insertInside(root, newNode); // recursive function
+			insertInside(root, newNode, game); // recursive function
 			if (newNode->parent != nullptr)
 			{
 				balance(newNode);
 			}
 		}
 	}
-	Node* insertInside(Node* currNode, Node* node) //Inspiration from project 1 made by Eitan Kogutek
+	Node* insertInside(Node* currNode, Node* node, Game game) //Inspiration from project 1 made by Eitan Kogutek
 	{
 		if (currNode == nullptr)
 		{
 			return node;
+		}
+		else if (currNode->season == node->season)
+		{
+			currNode->data.emplace(make_pair(game.homeTeam, game.awayTeam), game);
 		}
 		else if (node->season < currNode->season) // CORREGIR, no se que tipo de data usaremos para comparar
 		{
@@ -42,7 +46,7 @@ public:
 			{
 				node->parent = currNode;
 			}
-			currNode->left = insertInside(currNode->left, node);
+			currNode->left = insertInside(currNode->left, node, game);
 		}
 		else if (node->season > currNode->season) // CORREGIR, no se que tipo de data usaremos para comparar
 		{
@@ -50,7 +54,7 @@ public:
 			{
 				node->parent = currNode;
 			}
-			currNode->right = insertInside(currNode->right, node);
+			currNode->right = insertInside(currNode->right, node, game);
 		}
 		return currNode;
 	}
@@ -164,6 +168,55 @@ public:
 		else if (node->season < season)
 		{
 			return searchIterator(season, home, visitor, node->right);
+		}
+	}
+
+	void search(int season, string team) {
+		searchIterator(season, team, root);
+	}
+
+	void searchIterator(int season, string team, Node* node) {
+		if (node->season == season)
+		{
+			team = "\"" + team + "\"";
+			int goalsFor = 0;
+			int goalsAgainst = 0;
+			int totalGames = 0;
+			for (auto& it : node->data) {
+				if (it.first.first == team || it.first.second == team) {
+					totalGames++;
+					if (it.first.first == team) {
+						goalsFor += it.second.hGoals;
+						goalsAgainst += it.second.aGoals;
+					}
+					if (it.first.second == team) {
+						goalsFor += it.second.aGoals;
+						goalsAgainst += it.second.hGoals;
+					}
+				}
+			}
+
+			//set precision to display only 2 decimals. snippet from 
+	//https://stackoverflow.com/questions/22515592/how-to-use-setprecision-in-c
+			cout << fixed << showpoint;
+			cout << setprecision(2);
+
+			cout << endl;
+
+			cout << team.substr(1, team.size() - 2) << " record for the " << season << "-" << season + 1 << " season : " << endl;
+			cout << "Goals for: " << goalsFor << endl;
+			cout << "Goals against: " << goalsAgainst << endl;
+			cout << "Goal difference: " << goalsFor - goalsAgainst << endl;
+			cout << "Average goals scored: " << (float)goalsFor / (float)totalGames << endl;
+			cout << "Average goals received: " << (float)goalsAgainst / (float)totalGames << endl;
+		}
+		if (node->season > season)
+		{
+			 searchIterator(season, team, node->left);
+		}
+		else if (node->season < season)
+		{
+			 searchIterator(season, team, node->right);
 		}
 	}
 

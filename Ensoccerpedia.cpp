@@ -55,31 +55,112 @@ void mainHash() {
     cout << "There are " << hashSize << " games in the database." << endl;
 
     Hash hash = Hash(hashSize);
-
-    ifstream spain(fileName);
     string line;
-    getline(spain, line);
-    while (getline(spain, line, ',')) {
-        string date = line;
-        getline(spain, line, ',');
-        int season = stoi(line);
-        getline(spain, line, ',');
-        string homeTeam = line;
-        getline(spain, line, ',');
-        string awayTeam = line;
-        getline(spain, line, ',');
-        getline(spain, line, ',');
-        getline(spain, line, ',');
-        int hGoals = stoi(line);
-        getline(spain, line, ',');
-        int aGoals = stoi(line);
-        getline(spain, line, ',');
-        getline(spain, line, ',');
-        getline(spain, line, ',');
-        getline(spain, line, '\n');
-        Game game(date, season, homeTeam, awayTeam, hGoals, aGoals);
 
-        hash.Insert(season, game);
+    if (fileName == "england.csv") {
+        ifstream england(fileName);
+        getline(england, line);
+        while (getline(england, line, ','))
+        {
+            string date = line;
+            getline(england, line, ',');
+            int season = stoi(line);
+            getline(england, line, ',');
+            string homeTeam = line;
+            getline(england, line, ',');
+            string awayTeam = line;
+            getline(england, line, ',');
+            getline(england, line, ',');
+            int hGoals = stoi(line);
+            getline(england, line, ',');
+            int aGoals = stoi(line);
+            getline(england, line, ',');
+            getline(england, line, ',');
+            getline(england, line, ',');
+            getline(england, line, ',');
+            getline(england, line, '\n');
+            Game game(date, season, homeTeam, awayTeam, hGoals, aGoals);
+
+            hash.Insert(season, game);
+        }
+    }
+
+    else if (fileName == "spain.csv") {
+        ifstream spain(fileName);
+        string line;
+        getline(spain, line);
+        while (getline(spain, line, ','))
+        {
+            string date = line;
+            getline(spain, line, ',');
+            int season = stoi(line);
+            getline(spain, line, ',');
+            string homeTeam = line;
+            getline(spain, line, ',');
+            string awayTeam = line;
+            getline(spain, line, ',');
+            getline(spain, line, ',');
+            getline(spain, line, ',');
+            int hGoals = stoi(line);
+            getline(spain, line, ',');
+            int aGoals = stoi(line);
+            getline(spain, line, ',');
+            getline(spain, line, ',');
+            getline(spain, line, ',');
+            getline(spain, line, '\n');
+            Game game(date, season, homeTeam, awayTeam, hGoals, aGoals);
+
+            hash.Insert(season, game);
+        }
+    }
+
+    else if (fileName == "germany.csv") {
+        ifstream germany(fileName);
+        getline(germany, line);
+        while (getline(germany, line, ','))
+        {
+            string date = line;
+            getline(germany, line, ',');
+            int season = stoi(line);
+            getline(germany, line, ',');
+            string homeTeam = line;
+            getline(germany, line, ',');
+            string awayTeam = line;
+            getline(germany, line, ',');
+            getline(germany, line, ',');
+            int hGoals = stoi(line);
+            getline(germany, line, ',');
+            int aGoals = stoi(line);
+            getline(germany, line, ',');
+            getline(germany, line, '\n');
+            Game game(date, season, homeTeam, awayTeam, hGoals, aGoals);
+
+            hash.Insert(season, game);
+        }
+    }
+
+    else if (fileName == "italy.csv") {
+        ifstream italy(fileName);
+        getline(italy, line);
+        while (getline(italy, line, ','))
+        {
+            string date = line;
+            getline(italy, line, ',');
+            int season = stoi(line);
+            getline(italy, line, ',');
+            string homeTeam = line;
+            getline(italy, line, ',');
+            string awayTeam = line;
+            getline(italy, line, ',');
+            getline(italy, line, ',');
+            int hGoals = stoi(line);
+            getline(italy, line, ',');
+            int aGoals = stoi(line);
+            getline(italy, line, '\n');
+            Game game(date, season, homeTeam, awayTeam, hGoals, aGoals);
+
+            hash.Insert(season, game);
+        }
     }
 
     cout << "Which action would you like to perform?" << endl;
@@ -181,32 +262,112 @@ void mainTree() {
     cout << "There are " << hashSize << " games in the database." << endl;
 
     redBlackTree tree;
-
-    ifstream spain(fileName);
     string line;
-    getline(spain, line);
-    while (getline(spain, line, ','))
-    {
-        string date = line;
-        getline(spain, line, ',');
-        int season = stoi(line);
-        getline(spain, line, ',');
-        string homeTeam = line;
-        getline(spain, line, ',');
-        string awayTeam = line;
-        getline(spain, line, ',');
-        getline(spain, line, ',');
-        getline(spain, line, ',');
-        int hGoals = stoi(line);
-        getline(spain, line, ',');
-        int aGoals = stoi(line);
-        getline(spain, line, ',');
-        getline(spain, line, ',');
-        getline(spain, line, ',');
-        getline(spain, line, '\n');
-        Game game(date, season, homeTeam, awayTeam, hGoals, aGoals);
 
-        tree.insert(season, game);
+    if (fileName == "england.csv") {
+        ifstream england(fileName);
+        getline(england, line);
+        while (getline(england, line, ','))
+        {
+            string date = line;
+            getline(england, line, ',');
+            int season = stoi(line);
+            getline(england, line, ',');
+            string homeTeam = line;
+            getline(england, line, ',');
+            string awayTeam = line;
+            getline(england, line, ',');
+            getline(england, line, ',');
+            int hGoals = stoi(line);
+            getline(england, line, ',');
+            int aGoals = stoi(line);
+            getline(england, line, ',');
+            getline(england, line, ',');
+            getline(england, line, ',');
+            getline(england, line, ',');
+            getline(england, line, '\n');
+            Game game(date, season, homeTeam, awayTeam, hGoals, aGoals);
+
+            tree.insert(season, game);
+        }
+    }
+
+    else if (fileName == "spain.csv") {
+        ifstream spain(fileName);
+        string line;
+        getline(spain, line);
+        while (getline(spain, line, ','))
+        {
+            string date = line;
+            getline(spain, line, ',');
+            int season = stoi(line);
+            getline(spain, line, ',');
+            string homeTeam = line;
+            getline(spain, line, ',');
+            string awayTeam = line;
+            getline(spain, line, ',');
+            getline(spain, line, ',');
+            getline(spain, line, ',');
+            int hGoals = stoi(line);
+            getline(spain, line, ',');
+            int aGoals = stoi(line);
+            getline(spain, line, ',');
+            getline(spain, line, ',');
+            getline(spain, line, ',');
+            getline(spain, line, '\n');
+            Game game(date, season, homeTeam, awayTeam, hGoals, aGoals);
+
+            tree.insert(season, game);
+        }
+    }
+   
+    else if (fileName == "germany.csv") {
+        ifstream germany(fileName);
+        getline(germany, line);
+        while (getline(germany, line, ','))
+        {
+            string date = line;
+            getline(germany, line, ',');
+            int season = stoi(line);
+            getline(germany, line, ',');
+            string homeTeam = line;
+            getline(germany, line, ',');
+            string awayTeam = line;
+            getline(germany, line, ',');
+            getline(germany, line, ',');
+            int hGoals = stoi(line);
+            getline(germany, line, ',');
+            int aGoals = stoi(line);
+            getline(germany, line, ',');
+            getline(germany, line, '\n');
+            Game game(date, season, homeTeam, awayTeam, hGoals, aGoals);
+
+            tree.insert(season, game);
+        }
+    }
+
+    else if (fileName == "italy.csv") {
+        ifstream italy(fileName);
+        getline(italy, line);
+        while (getline(italy, line, ','))
+        {
+            string date = line;
+            getline(italy, line, ',');
+            int season = stoi(line);
+            getline(italy, line, ',');
+            string homeTeam = line;
+            getline(italy, line, ',');
+            string awayTeam = line;
+            getline(italy, line, ',');
+            getline(italy, line, ',');
+            int hGoals = stoi(line);
+            getline(italy, line, ',');
+            int aGoals = stoi(line);
+            getline(italy, line, '\n');
+            Game game(date, season, homeTeam, awayTeam, hGoals, aGoals);
+
+            tree.insert(season, game);
+        }
     }
 
     cout << "Which action would you like to perform?" << endl;
@@ -246,7 +407,7 @@ void mainTree() {
         cout << "Result: " << found.hGoals << "-" << found.aGoals << endl << endl;
 
         break;
-    /*case 2:
+    case 2:
         cout << "Please enter the season year (i.e. for 2018-19 season enter 2018)" << endl;
         cin >> season;
 
@@ -255,8 +416,8 @@ void mainTree() {
         cin.ignore();
         getline(cin, home);
 
-        hash.Search(season, home);
-        break;*/
+        tree.search(season, home);
+        break;
 
 
     default:
