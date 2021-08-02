@@ -21,6 +21,7 @@ public:
 		this->season = season;
 		data.emplace(make_pair(game.homeTeam, game.awayTeam), game);
 	}
+
 	void changeColor(bool color)
 	{
 		black = color;

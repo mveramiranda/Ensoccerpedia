@@ -9,9 +9,12 @@ using namespace std;
 class Hash {
 	private:
 		int SIZE;
-		list < map< pair< string, string>, Game> > *table;
+		map< pair< string, string>, Game> *table;
 
 	public: 
-		void Insert(Game game);
-		void Search(int season, string homeTeam, string awayTeam);
+		Hash(int size);
+		int HashCode(int input);
+		void Insert(int season, Game game);
+		void Search(int season, string team); //search feature for option 2
+		Game Search(int season, string homeTeam, string awayTeam); //search feature for option 1
 };

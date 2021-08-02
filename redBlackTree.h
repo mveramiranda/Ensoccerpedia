@@ -148,9 +148,10 @@ public:
 		if (node->season == season)
 		{
 			auto iter = node->data.begin();
-			for (; iter != node->data.end(); iter++)
+			pair<string, string> searchGame = make_pair(home, visitor);
+			for (; iter != node->data.end(); ++iter)
 			{
-				if (iter->first == make_pair(home, visitor))
+				if (iter->first == searchGame)
 				{
 					return iter->second;
 				}
