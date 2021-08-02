@@ -24,7 +24,10 @@ public:
 		{
 			Node* newNode = new Node(season, game);
 			insertInside(root, newNode); // recursive function
-			balance(newNode);
+			if (newNode->parent != nullptr)
+			{
+				balance(newNode);
+			}
 		}
 	}
 	Node* insertInside(Node* currNode, Node* node) //Inspiration from project 1 made by Eitan Kogutek
