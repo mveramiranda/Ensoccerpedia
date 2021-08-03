@@ -1,5 +1,6 @@
 #pragma once
 #include <map>
+#include <iostream>
 #include <iomanip>
 #include <string>
 #include <queue>
@@ -218,7 +219,7 @@ void redBlackTree::searchIterator(int season, string team, Node* node) {
 }
 
 
-void redBlackTree::levelOrder() // inspired by module4 stepik solution
+void redBlackTree::levelOrder() // inspired by module4 stepik solution. used for testing the tree
 {
 	queue<Node*> queue;
 	int levelNum = 1;

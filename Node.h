@@ -4,6 +4,7 @@
 #include "Game.h"
 using namespace std;
 
+//red-black tree node
 class Node
 {
 public:

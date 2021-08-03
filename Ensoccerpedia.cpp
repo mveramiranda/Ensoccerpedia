@@ -24,27 +24,32 @@ void mainHash() {
     cin >> selection;
 
     string fileName;
-    int hashSize = 0;
+    int hashSize = 0, tableSize = 0;
 
+    //specifies the data file to load
     switch (selection) {
     case 1:
         fileName = "england.csv";
         hashSize = 199884;
+        tableSize = 131;
         cout << "You have chosen the English league.";
         break;
     case 2:
         fileName = "spain.csv";
         hashSize = 25435;
+        tableSize = 91;
         cout << "You have chosen the Spanish league.";
         break;
     case 3:
         fileName = "italy.csv";
         hashSize = 26924;
+        tableSize = 85;
         cout << "You have chosen the Italian league.";
         break;
     case 4:
         fileName = "germany.csv";
         hashSize = 35858;
+        tableSize = 56;
         cout << "You have chosen the German league.";
         break;
     default:
@@ -54,9 +59,11 @@ void mainHash() {
 
     cout << "There are " << hashSize << " games in the database." << endl;
 
-    Hash hash = Hash(hashSize);
+    //initializes the hash table
+    Hash hash = Hash(tableSize);
     string line;
 
+    //depending on the league chosen, loads the dataset
     if (fileName == "england.csv") {
         ifstream england(fileName);
         getline(england, line);
@@ -175,6 +182,8 @@ void mainHash() {
     Game found;
 
     switch (selection) {
+
+        //prints out a specific match
         case 1:
             cout << "Please enter the season year (i.e. for 2018-19 season enter 2018)" << endl;
             cin >> season;
@@ -200,6 +209,8 @@ void mainHash() {
             cout << "Result: " << found.hGoals << "-" << found.aGoals << endl << endl;
 
             break;
+
+        //prints a team's season record
         case 2:
             cout << "Please enter the season year (i.e. for 2018-19 season enter 2018)" << endl;
             cin >> season;
@@ -212,7 +223,7 @@ void mainHash() {
             hash.Search(season, home);
             break;
 
-
+        //exits the program if an invalid input was chosen
         default:
             cout << "Invalid input! Please try running the program again" << endl;
             exit(0);
@@ -233,6 +244,7 @@ void mainTree() {
     string fileName;
     int hashSize = 0;
 
+    //specifies the data file to load
     switch (selection) {
     case 1:
         fileName = "england.csv";
@@ -261,9 +273,11 @@ void mainTree() {
 
     cout << "There are " << hashSize << " games in the database." << endl;
 
+    //initializes the red-black tree
     redBlackTree tree;
     string line;
 
+    //depending on the league chosen, loads the dataset
     if (fileName == "england.csv") {
         ifstream england(fileName);
         getline(england, line);
@@ -382,6 +396,7 @@ void mainTree() {
     Game found;
 
     switch (selection) {
+        //prints out a specific match
     case 1:
         cout << "Please enter the season year (i.e. for 2018-19 season enter 2018)" << endl;
         cin >> season;
@@ -407,6 +422,7 @@ void mainTree() {
         cout << "Result: " << found.hGoals << "-" << found.aGoals << endl << endl;
 
         break;
+        //prints a team's season record
     case 2:
         cout << "Please enter the season year (i.e. for 2018-19 season enter 2018)" << endl;
         cin >> season;
@@ -419,7 +435,7 @@ void mainTree() {
         tree.search(season, home);
         break;
 
-
+    //exits the program if an invalid input was chosen
     default:
         cout << "Invalid input! Please try running the program again" << endl;
         exit(0);

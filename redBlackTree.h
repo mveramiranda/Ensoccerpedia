@@ -8,6 +8,7 @@
 #include "Node.h"
 using namespace std;
 
+//red-black tree implementation
 class redBlackTree
 {
 public:
